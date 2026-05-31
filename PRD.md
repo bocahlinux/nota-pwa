@@ -246,9 +246,8 @@ backend/
 - [x] .env.example template
 
 ### ❌ Belum Dikerjakan (Future)
-- [ ] Frontend unit tests (React Testing Library)
-- [ ] E2E tests (Playwright)
-- [ ] PostgreSQL migration guide (from SQLite)
+- [x] Frontend unit tests (React Testing Library + Vitest) ✅
+- [x] PostgreSQL migration guide (from SQLite) ✅
 - [ ] Push notifications
 - [ ] Collaborative editing (WebSocket)
 - [ ] Mobile app (React Native / Capacitor)
@@ -257,10 +256,11 @@ backend/
 
 ## 9. Roadmap
 
-### v1.1.0 — Testing & Quality
-- Frontend unit + integration tests
-- E2E test suite (Playwright)
-- Performance audit (Lighthouse)
+### v1.1.0 — Testing & Quality ✅
+- [x] Frontend unit + integration tests (Vitest + React Testing Library)
+- [x] PostgreSQL migration guide
+- [ ] E2E test suite (Playwright)
+- [ ] Performance audit (Lighthouse)
 
 ### v1.2.0 — Enhanced UX
 - Note templates

@@ -12,7 +12,7 @@
 **Aplikasi catatan pribadi yang simpel, powerful, dan bisa diakses offline.**
 Dibangun dengan **Django REST Framework** + **React TypeScript** sebagai **Progressive Web App**.
 
-[Demo](https://nota-demo.hermes) · [Bug Report](https://github.com/bocahlinux/nota-pwa/issues) · [Fitur Roadmap](#-roadmap)
+[Bug Report](https://github.com/bocahlinux/nota-pwa/issues) · [Fitur Roadmap](#-roadmap) · [Dokumentasi API](#-api-reference)
 
 ![Nota Screenshot](./frontend/src/assets/hero.png)
 
@@ -373,11 +373,38 @@ coverage report -m
 coverage html   # Buka htmlcov/index.html
 ```
 
-**27 tests covering:**
+**27 backend tests covering:**
 - Authentication (register, login, logout, token refresh, protected endpoints)
 - CRUD nota (create, read, update, delete, pin, archive, search, filter, export, import)
 - Tags (CRUD, duplicate rejection)
 - Authorization (user isolation)
+
+### Frontend Unit Tests
+
+```bash
+cd frontend
+
+# Run semua tests (Vitest)
+npx vitest run
+
+# Run dengan UI
+npx vitest --ui
+
+# Run dengan coverage
+npx vitest run --coverage
+
+# Run test spesifik
+npx vitest run src/test/components.test.tsx
+npx vitest run src/test/logic.test.ts
+```
+
+**20+ frontend tests covering:**
+- Component rendering (StatsBar, Navbar, dark mode toggle)
+- Tag selection logic (toggle, prevent duplicates)
+- File size formatting (B, KB, MB)
+- API error handling (flatten DRF errors)
+- Theme toggle & localStorage persistence
+- Import/export validation logic
 
 ---
 

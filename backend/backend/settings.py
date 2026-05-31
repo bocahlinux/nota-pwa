@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
+    'webpush',
     # Local apps
     'notes',
     'accounts',
@@ -162,6 +163,13 @@ CORS_ALLOW_HEADERS = [
     'x-csrftoken',
     'x-requested-with',
 ]
+
+# ── Web Push Notifications ───────────────────────────────────────────────────
+WEBPUSH_SETTINGS = {
+    "VAPID_PUBLIC_KEY": os.environ.get("VAPID_PUBLIC_KEY", ""),
+    "VAPID_PRIVATE_KEY": os.environ.get("VAPID_PRIVATE_KEY", ""),
+    "VAPID_ADMIN_EMAIL": os.environ.get("VAPID_ADMIN_EMAIL", "mailto:admin@example.com"),
+}
 
 # ── Static & Media files ─────────────────────────────────────────────────────
 STATIC_URL = 'static/'

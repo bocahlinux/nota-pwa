@@ -65,6 +65,37 @@ class Attachment(models.Model):
         return self.filename
 
     def delete(self, *args, **kwargs):
-        # Delete file on storage when model is deleted
         self.file.delete(save=False)
         super().delete(*args, **kwargs)
+
+
+class PushSubscription(models.Model):
+    """Web Push subscription untuk user."""
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='push_subscriptions')
+    endpoint = models.TextField(unique=True)
+    p256dh = models.TextField()
+    auth = models.TextField()
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return self.user.username + ' — ' + self.endpoint[:50] + '...'
+
+
+class NotificationLog(models.Model):
+    """Log notifikasi yang dikirim."""
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='notification_logs')
+    title = models.CharField(max_length=200)
+    body = models.TextField()
+    sent_at = models.DateTimeField(auto_now_add=True)
+    success = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ['-sent_at']
+
+    def __str__(self):
+        return self.title + ' → ' + self.user.username
