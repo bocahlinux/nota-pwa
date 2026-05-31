@@ -1,0 +1,48 @@
+# Git Ignore — Nota Project
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Virtualenv
+venv/
+.venv/
+env/
+
+# Django
+*.log
+*.sqlite3
+media/
+staticfiles/
+.env
+
+# Node
+node_modules/
+dist/
+vite.config.ts.timestamp-*
+*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+*.bak
+
+# Secrets
+*.pem
+*.key
+
+# Docker
+docker-compose.override.yml
