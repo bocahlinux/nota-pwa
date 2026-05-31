@@ -1,8 +1,13 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
+import type { UserConfig } from 'vite'
 
-export default defineConfig({
+// Backend URL from env — defaults to localhost:8000 for development
+const BACKEND_URL = process.env.VITE_API_BASE_URL || 'http://localhost:8000'
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const config: any = defineConfig({
   plugins: [
     react(),
     VitePWA({
@@ -49,9 +54,10 @@ export default defineConfig({
     }),
   ],
   server: {
+    port: 5173,
     proxy: {
       '/api': {
-        target: 'http://localhost:8000',
+        target: BACKEND_URL,
         changeOrigin: true,
       },
     },
@@ -63,3 +69,5 @@ export default defineConfig({
     css: true,
   },
 })
+
+export default config
