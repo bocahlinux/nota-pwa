@@ -61,6 +61,7 @@ const config: any = defineConfig({
       '/api': {
         target: BACKEND_URL,
         changeOrigin: true,
+        rewrite: (path) => path, // keep /api prefix as-is
       },
     },
   },
