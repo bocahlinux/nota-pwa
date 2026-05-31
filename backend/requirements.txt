@@ -2,6 +2,7 @@ Django==5.2.14
 djangorestframework==3.17.1
 djangorestframework_simplejwt==5.5.1
 django-cors-headers==4.9.0
+django-webpush==0.3.6
 PyJWT==2.12.1
 psycopg2-binary==2.9.12
 gunicorn==23.0.0
