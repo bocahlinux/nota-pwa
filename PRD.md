@@ -3,7 +3,7 @@
 
 > **Versi:** 1.0.0
 > **Tanggal:** 31 Mei 2026
-> **Status:** In Progress
+> **Status:** v1.0.0 — Complete
 > **Author:** Yudha
 
 ---
@@ -27,7 +27,7 @@
 | **Frontend** | React 18 + TypeScript + Vite |
 | **Styling** | Custom CSS (tanpa framework CSS) |
 | **PWA** | Workbox (via vite-plugin-pwa) |
-| **Auth** | Django Session + Basic Auth |
+| **Auth** | JWT (djangorestframework-simplejwt) |
 
 ---
 
@@ -207,53 +207,73 @@ backend/
 
 ## 8. Progress Ringkasan
 
-### ✅ Sudah Selesai (v0.1.0)
-- [x] Django project + REST Framework setup
-- [x] Nota model + migrations
-- [x] NotaViewSet (CRUD + toggle pin + archive + stats)
-- [x] Serializers + filtering + search + pagination
-- [x] React + TypeScript + Vite setup
-- [x] Auth context (login/logout with session)
-- [x] Home page (list + search + filter + pagination)
-- [x] Nota form (create/edit modal)
-- [x] Pin, archive, delete actions
-- [x] Stats bar
-- [x] PWA manifest + service worker
-- [x] Responsive CSS (mobile-first)
-- [x] CSRF protection
+### ✅ Sudah Selesai (v1.0.0)
 
-### ❌ Belum Dikerjakan
-- [ ] User registration
-- [ ] Tests (backend + frontend)
-- [ ] Dark mode
-- [ ] PostgreSQL migration
-- [ ] Production deployment setup
-- [ ] API token auth (menggantikan basic auth)
+**Backend:**
+- [x] Django project + REST Framework setup
+- [x] Nota model + migrations (incl. Tag, Attachment)
+- [x] NotaViewSet (CRUD + toggle pin + archive + stats + export + import)
+- [x] TagViewSet + AttachmentViewSet (CRUD)
+- [x] Serializers + filtering + search + pagination
+- [x] JWT Authentication (register, login, logout, token refresh)
+- [x] Rate limiting (30/min anon, 100/min user)
+- [x] Security hardening (HSTS, CORS, CSRF, secure cookies, XSS protection)
+- [x] PostgreSQL support (environment-based config)
+- [x] Environment-based settings (dev/prod)
+- [x] 27 unit & integration tests (all passing)
+
+**Frontend:**
+- [x] React + TypeScript + Vite setup
+- [x] JWT Auth context (login, register, auto token refresh on 401)
+- [x] Home page (list + search + filter + pagination + tag filter)
+- [x] Nota form (create/edit modal with markdown/plain toggle)
+- [x] Dark mode toggle (system preference + localStorage persist)
+- [x] Tags UI (selector chips, color picker, inline create, filter by tag)
+- [x] File attachments (drag & drop, progress bar, list, delete)
+- [x] Export/Import notes (JSON)
+- [x] Toast notifications (success/error/info/warning)
+- [x] Markdown editor (write/preview tabs, GFM support)
+- [x] Error boundary (global catch, retry)
+- [x] PWA manifest + service worker
+- [x] Responsive CSS (mobile-first, up to 3-column grid)
+
+**Deployment:**
+- [x] Docker files (backend + frontend)
+- [x] Docker Compose config
+- [x] Nginx production config (reverse proxy, security headers)
+- [x] Bare metal deploy script (Ubuntu 22.04+, auto SSL via Certbot)
+- [x] GitHub Actions CI/CD (test → build → deploy via SSH)
+- [x] .env.example template
+
+### ❌ Belum Dikerjakan (Future)
+- [ ] Frontend unit tests (React Testing Library)
+- [ ] E2E tests (Playwright)
+- [ ] PostgreSQL migration guide (from SQLite)
 - [ ] Push notifications
-- [ ] Rich text / markdown editor
-- [ ] Tags / categories
-- [ ] File attachments
-- [ ] Export / import notes
+- [ ] Collaborative editing (WebSocket)
+- [ ] Mobile app (React Native / Capacitor)
 
 ---
 
 ## 9. Roadmap
 
-### v0.2.0 — Testing & Registration
-- Unit & integration tests (backend)
-- User registration flow
-- Error handling improvements
+### v1.1.0 — Testing & Quality
+- Frontend unit + integration tests
+- E2E test suite (Playwright)
+- Performance audit (Lighthouse)
 
-### v0.3.0 — Dark Mode & Polish
-- Dark mode toggle
-- Smooth animations
-- Toast notifications
+### v1.2.0 — Enhanced UX
+- Note templates
+- Trash bin (soft delete + restore)
+- Keyboard shortcuts
+- Rich text toolbar
 
-### v1.0.0 — Production Ready
-- PostgreSQL setup
-- Deployment (Docker + CI/CD)
-- API token authentication
-- Performance optimization
+### v2.0.0 — Scale & Collaboration
+- PostgreSQL production migration
+- Redis caching layer
+- Full-text search (Elasticsearch)
+- Multi-device sync (WebSocket)
+- Push notifications
 
 ---
 
